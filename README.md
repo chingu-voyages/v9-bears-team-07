@@ -24,3 +24,4 @@ Dog park webapp aimed to connect pet owners in dog parks.
 2) Complete backlog
 3) Analyze DB model
 4) Try Gatsby? (for what I've read, this tool works best for statis websites, and in our case it would be a completely dynamic website)
+5) Go mobile first
