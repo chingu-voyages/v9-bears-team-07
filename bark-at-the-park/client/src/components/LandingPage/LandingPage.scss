@@ -6,18 +6,14 @@
 
     &__Header {
         border: 2px solid black;
-        background-color: #FFF4D0;
+        background-color: rgb(241, 234, 209);
         padding: 30px 15px;
         border-radius: 4px;
+        margin-top: 5px;
     }
 
     &__Subheader {
-        border: 1px solid red;
-    }
-
-    &__Image {
-        // padding: 30px 15px;
-        border-radius: 4px;
+        padding: 35px;
     }
 
 }
