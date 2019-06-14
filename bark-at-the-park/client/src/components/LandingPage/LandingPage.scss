@@ -1,0 +1,23 @@
+.LandingPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // margin-top: 50px;
+
+    &__Header {
+        border: 2px solid black;
+        background-color: #FFF4D0;
+        padding: 30px 15px;
+        border-radius: 4px;
+    }
+
+    &__Subheader {
+        border: 1px solid red;
+    }
+
+    &__Image {
+        // padding: 30px 15px;
+        border-radius: 4px;
+    }
+
+}
