@@ -46,6 +46,6 @@ class ParksController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def park_params
-      params.fetch(:park, {})
+      params.require(:park).permit(:name, :address, :opening_time, :closing_time)
     end
 end
