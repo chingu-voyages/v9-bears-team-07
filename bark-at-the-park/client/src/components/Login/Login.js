@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import { GoogleLogin } from 'react-google-login';
 import { GoogleLogout } from 'react-google-login';
+import axios from 'axios';
 
 import './Login.scss'
 
@@ -9,10 +10,13 @@ import './Login.scss'
 
 export default function Login () {
     const [logged, setLogin] = useState(false);
-    
-    const responseGoogle = (response) => { 
+
+    const responseGoogle = (response) => {
         setLogin(true)
-        console.log('Respuesta:',response); 
+        console.log('Respuesta:',response);
+        axios.post('http://localhost:3001/auth/login', {
+          client_id: response.getAuthResponse().id_token
+        })
     }
 
     const logout = () => {
@@ -23,7 +27,7 @@ export default function Login () {
     return (
         <div className="log-btn">
             {
-                logged ? 
+                logged ?
                     <GoogleLogout
                         buttonText="Logout"
                         onLogoutSuccess={logout}
