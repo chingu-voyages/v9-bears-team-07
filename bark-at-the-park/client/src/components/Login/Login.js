@@ -17,6 +17,7 @@ export default function Login () {
         axios.post('http://localhost:3001/auth/login', {
           client_id: response.getAuthResponse().id_token
         })
+        .then(res => console.log(res))
     }
 
     const logout = () => {
