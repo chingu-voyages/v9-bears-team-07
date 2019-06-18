@@ -1,12 +1,16 @@
+//@ core
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router } from 'react-router-dom';
 
+//@ components
+import App from './components';
+
+//@ styles
 import './index.scss'
 
 ReactDOM.render(
     <Router>
-        <Route exact path="/" component={App} />
+        <App/>
     </Router>
-    , document.getElementById('root'));
+, document.getElementById('root'));
