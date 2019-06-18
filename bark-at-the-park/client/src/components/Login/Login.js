@@ -1,10 +1,8 @@
 //@ core
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 import { GoogleLogin } from 'react-google-login';
-import { GoogleLogout } from 'react-google-login';
-
-//@ components
-
+// import { GoogleLogout } from 'react-google-login';
+import { withRouter } from 'react-router';
 
 // @ libraries
 import axios from 'axios';
@@ -12,44 +10,45 @@ import axios from 'axios';
 //@ styles
 import './Login.scss';
 
-export default function Login () {
-    const [logged, setLogin] = useState(false);
+class Login extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            logged: false
+        }
+    }
+    
+    responseGoogle = (response) => {
 
-    const responseGoogle = (response) => {
-        setLogin(true)
         axios.post('http://localhost:3001/auth/login', {
             client_id: response.getAuthResponse().id_token
         })
-        .then(res => console.log(res))
-
+        .then(res => {
+                console.log('res', res)
+                console.log('props',this.props)
+                return this.props.history.push('/homepage')
+            }) 
         // localStorage.setItem('logged', true)
-
+    
     }
-
-    const logout = () => {
-        setLogin(false)
-        // localStorage.setItem('logged', false)
+    
+    render() {
+        return (
+            <div className="log-btn">
+                {/* <GoogleLogout
+                    buttonText="Logout"
+                    onLogoutSuccess={this.logout}
+                /> */}
+                <GoogleLogin
+                    clientId="315721689688-0kcdvhqs7f2p8u6nc35v63ovlf59c62d.apps.googleusercontent.com"
+                    buttonText="Login"
+                    onSuccess={this.responseGoogle}
+                    onFailure={this.responseGoogle}
+                    cookiePolicy={'single_host_origin'}
+                />
+            </div>
+        )
     }
-
-    return (
-        <div className="log-btn">
-            {
-                logged ?
-                    <GoogleLogout
-                        buttonText="Logout"
-                        onLogoutSuccess={logout}
-                    />
-                    :
-                    <GoogleLogin
-                        clientId="315721689688-0kcdvhqs7f2p8u6nc35v63ovlf59c62d.apps.googleusercontent.com"
-                        buttonText="Login"
-                        onSuccess={responseGoogle}
-                        onFailure={responseGoogle}
-                        cookiePolicy={'single_host_origin'}
-                    />
-
-            }
-        </div>
-    )
-
 }
+
+export default withRouter(Login);
