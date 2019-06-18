@@ -1,28 +1,34 @@
-import React, { useState } from 'react'
-
+//@ core
+import React, { useState } from 'react';
 import { GoogleLogin } from 'react-google-login';
 import { GoogleLogout } from 'react-google-login';
+
+//@ components
+
+
+// @ libraries
 import axios from 'axios';
 
-import './Login.scss'
-
-// const logout = (response) => { console.log('Logout:',response); }
+//@ styles
+import './Login.scss';
 
 export default function Login () {
     const [logged, setLogin] = useState(false);
 
     const responseGoogle = (response) => {
         setLogin(true)
-        console.log('Respuesta:',response);
         axios.post('http://localhost:3001/auth/login', {
-          client_id: response.getAuthResponse().id_token
+            client_id: response.getAuthResponse().id_token
         })
         .then(res => console.log(res))
+
+        // localStorage.setItem('logged', true)
+
     }
 
     const logout = () => {
         setLogin(false)
-        console.log('user logged?', logged)
+        // localStorage.setItem('logged', false)
     }
 
     return (
@@ -32,8 +38,7 @@ export default function Login () {
                     <GoogleLogout
                         buttonText="Logout"
                         onLogoutSuccess={logout}
-                    >
-                    </GoogleLogout>
+                    />
                     :
                     <GoogleLogin
                         clientId="315721689688-0kcdvhqs7f2p8u6nc35v63ovlf59c62d.apps.googleusercontent.com"

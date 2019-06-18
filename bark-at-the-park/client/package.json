@@ -16,6 +16,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start-server": "pg_ctl -D /usr/local/var/postgres start",
+    "stop-server": "pg_ctl -D /usr/local/var/postgres stop",
+    "routes": "rails routes",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
