@@ -1,13 +1,13 @@
 .Navbar_Container {
-    width: 100%;
+    width: 100vw;
     border: 1px solid black;
-    height: 45px;
-    
-    .Items {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        color: red;
-        list-style-type: none;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+
+    div {
+        border: 1px solid red;
     }
+    
 }
