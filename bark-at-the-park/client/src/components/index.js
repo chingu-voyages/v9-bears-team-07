@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 
 //@ components
 import LandingPage from './LandingPage/LandingPage';
-import Homepage from './Homepage';
+import Homepage from './Homepage/Homepage';
 
 function App() {
   return (

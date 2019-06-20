@@ -1,0 +1,13 @@
+.Navbar_Container {
+    width: 100vw;
+    border: 1px solid black;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+
+    div {
+        border: 1px solid red;
+    }
+    
+}
