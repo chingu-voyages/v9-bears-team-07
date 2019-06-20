@@ -24,10 +24,11 @@ class Login extends Component {
             client_id: response.getAuthResponse().id_token
         })
         .then(res => {
-                console.log('res', res)
-                console.log('props',this.props)
-                return this.props.history.push('/homepage')
-            }) 
+            console.log('res', res)
+            console.log('props',this.props)
+            return this.props.history.push('/homepage')
+        })
+        .catch(err => console.err(err))
         // localStorage.setItem('logged', true)
     
     }

@@ -14,7 +14,6 @@ export default function LandingPage() {
       <h2 className="LandingPage__Subheader">A place where you can meet other pet owners at parks while your dog is running around</h2>
       <img className="LandingPage__Image" src="../../art.png" alt="Smiley face" height="400"></img>
       <Login />
-      {/* <div>Sign In</div> */}
     </div>
   )
 }
