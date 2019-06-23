@@ -30,7 +30,7 @@ class Login extends Component {
             console.log('props',this.props)
             return this.props.history.push('/homepage')
         })
-        .catch(err => console.err(err))
+        .catch(err => console.error(err))
         // localStorage.setItem('logged', true)
 
     }
@@ -41,17 +41,22 @@ class Login extends Component {
       })
     }
 
-    handleEmailLogin = () => {
+    handleEmailLogin = (event) => {
+      event.preventDefault();
       axios.post('http://localhost:3001/auth/email_login', {
-          email: this.state.email,
-          password: this.state.password
+          auth: this.state
       })
       .then(res => {
           console.log('res', res)
           console.log('props',this.props)
+          this.setState({
+            email: '',
+            password: ''
+          })
           // return this.props.history.push('/homepage')
       })
-      .catch(err => console.err(err))
+      .catch(err => console.error(err))
+
     }
 
     render() {
@@ -62,8 +67,8 @@ class Login extends Component {
                     onLogoutSuccess={this.logout}
                 /> */}
                 <form onSubmit={this.handleEmailLogin}>
-                  <input type="email" value={this.state.email} onChange={this.handleChange} id="email" />
-                  <input type="password" value={this.state.password} onChange={this.handleChange} id="password" />
+                  <input type="email" value={this.state.email} onChange={this.handleChange} name="email" />
+                  <input type="password" value={this.state.password} onChange={this.handleChange} name="password" />
                   <input type="submit" id="submit" />
                 </form>
                 <GoogleLogin

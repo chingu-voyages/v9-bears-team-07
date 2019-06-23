@@ -8,9 +8,9 @@ class AuthController < ApplicationController
     rescue GoogleIDToken::ValidationError => e
       puts "Cannot validate: #{e}"
     end
-
+    
     if payload
-      @user = User.find_or_initialize_by(email: payload['email']) do |u|
+      @user = User.find_or_create_by(email: payload['email']) do |u|
         u.name = payload['name']
         u.google_user = true
         u.logged_in = true
@@ -18,7 +18,7 @@ class AuthController < ApplicationController
 
       if @user.save
         session[:user_id] = @user.id
-        render json: @user, status: :created, location: @user
+        render json: @user, status: :created
       else
         render json: @user.errors, status: :unprocessable_entity
       end
@@ -26,15 +26,15 @@ class AuthController < ApplicationController
   end
 
   def email_login
-    @user = User.find_or_initialize_by(email: payload['email']) do |u|
-      u.name = payload['name']
-      u.google_user = false
+    @user = User.find_or_create_by(email: params['auth']['email']) do |u|
+      u.email = params['auth']['email']
+      u.password = params['auth']['password']
       u.logged_in = true
     end
 
     if @user.save
       session[:user_id] = @user.id
-      render json: @user, status: :created, location: @user
+      render json: @user, status: :created
     else
       render json: @user.errors, status: :unprocessable_entity
     end
