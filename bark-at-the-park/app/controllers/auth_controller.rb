@@ -8,7 +8,7 @@ class AuthController < ApplicationController
     rescue GoogleIDToken::ValidationError => e
       puts "Cannot validate: #{e}"
     end
-    
+
     if payload
       @user = User.find_or_create_by(email: payload['email']) do |u|
         u.name = payload['name']
@@ -31,8 +31,8 @@ class AuthController < ApplicationController
       u.password = params['auth']['password']
       u.logged_in = true
     end
-
-    if @user.save
+    
+    if @user.save && @user.authenticate(params['auth']['password'])
       session[:user_id] = @user.id
       render json: @user, status: :created
     else
