@@ -1,13 +1,26 @@
-.Navbar_Container {
+.Navbar {
     width: 100vw;
-    border: 1px solid black;
+    border: 2px solid black;
     height: 70px;
     display: flex;
     align-items: center;
     font-size: 1.2rem;
+    display: flex;
+    flex-direction: row;
 
+    
     div {
-        border: 1px solid red;
+        transition: all .15s ease-in-out;
+        // border: 4px solid yellow;
+        cursor: pointer;
+        
     }
     
+    div:hover {
+        font-weight: bold;
+        border-top-left-radius: 2rem;
+        border-bottom: 4px solid rgb(95, 95, 175);
+        // font-size: 1.4rem;
+        transform: scale(1.1);
+    }
 }

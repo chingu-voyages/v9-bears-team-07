@@ -29,7 +29,7 @@ class Login extends Component {
             return this.props.history.push('/homepage')
         })
         .catch(err => console.err(err))
-        // localStorage.setItem('logged', true)
+        localStorage.setItem('logged', true)
     
     }
     

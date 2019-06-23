@@ -5,7 +5,7 @@ import '../Navbar/Navbar.scss'
 export default class Navbar extends Component {
     render() {
         return (
-            <div className="Navbar_Container">
+            <div className="Navbar">
                 <div>Home</div>
                 <div>Profile</div>
                 <div>Friends</div>
