@@ -17,10 +17,10 @@ class Login extends Component {
             logged: false
         }
     }
-    
+
     responseGoogle = (response) => {
 
-        axios.post('http://localhost:3001/auth/login', {
+        axios.post('http://localhost:3001/auth/google_login', {
             client_id: response.getAuthResponse().id_token
         })
         .then(res => {
@@ -30,9 +30,9 @@ class Login extends Component {
         })
         .catch(err => console.err(err))
         // localStorage.setItem('logged', true)
-    
+
     }
-    
+
     render() {
         return (
             <div className="log-btn">
