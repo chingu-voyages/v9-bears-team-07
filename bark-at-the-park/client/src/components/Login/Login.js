@@ -11,12 +11,12 @@ import axios from 'axios';
 import './Login.scss';
 
 class Login extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            logged: false
-        }
-    }
+    // constructor(props) {
+    //     super(props)
+    //     this.state = {
+    //         logged: false
+    //     }
+    // }
     
     responseGoogle = (response) => {
 
@@ -29,7 +29,7 @@ class Login extends Component {
             return this.props.history.push('/homepage')
         })
         .catch(err => console.err(err))
-        // localStorage.setItem('logged', true)
+        localStorage.setItem('logged', true)
     
     }
     

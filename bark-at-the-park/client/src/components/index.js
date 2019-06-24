@@ -7,6 +7,7 @@ import LandingPage from './LandingPage/LandingPage';
 import Homepage from './Homepage/Homepage';
 
 function App() {
+
   return (
     <Switch>
       <Route exact path="/" component={LandingPage}/>
@@ -16,3 +17,4 @@ function App() {
 }
 
 export default App;
+
