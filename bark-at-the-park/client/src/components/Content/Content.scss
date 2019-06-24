@@ -1,5 +1,16 @@
-// .Content {
-//     border: 1px solid red;
-//     height: 100vh;
-//     width: 100vw;
-// }
+.Content {
+    border: 2px solid black;
+    height: 100%;
+    // width: 100vw;
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+
+    &__Header {
+        border: 1px solid red;
+    }
+
+    &__ParkList ul {
+        border: 1px solid pink;
+    }
+}

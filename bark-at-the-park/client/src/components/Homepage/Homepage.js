@@ -18,6 +18,11 @@ export default class Homepage extends Component {
                 <div className="Homepage__Content">
                     <Content />
                 </div>
+                <div className="Homepage__Check">
+                    <div className="Homepage__Check-text">
+                        Checkin
+                    </div>
+                </div>
             </div>
         )
     }
