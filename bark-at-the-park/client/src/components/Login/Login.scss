@@ -1,19 +1,42 @@
 .login {
-    margin-top: 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  #submit {
-    width: 100%;
-    padding-bottom: 0.5em;
+  justify-content: flex-end;
+  
+  &__form {
+    padding-top: 50px;
   }
-  p {
-    padding-bottom: 0.5em;
+  
+  &__google {
+    padding-top: 50px;
   }
+  
+}
+
+input[type=email], input[type=password]  {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #555;
+  outline: none;
+}
+
+.input {
+  text-align: center;
+  font-weight: bold;
+}
+
+input[type=email]:focus, input[type=password]:focus {
+  background-color: rgb(196, 227, 238);
+}
+
+.submit {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
 }
