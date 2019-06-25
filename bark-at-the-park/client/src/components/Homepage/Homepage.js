@@ -1,8 +1,9 @@
 //@ core
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 //@ components
-import Navbar from '../Navbar/Navbar'
+import Navbar from '../Navbar/Navbar';
+import Content from '../Content/Content';
 
 //@ styles
 import '../Homepage/Homepage.scss'
@@ -11,9 +12,17 @@ export default class Homepage extends Component {
     render() {
         return (
             <div className="Homepage">
-                <Navbar />
-                <h1>CONTENT</h1>
-                <h1>FOOTER</h1>
+                <div className="Homepage__Navbar">
+                    <Navbar />
+                </div>
+                <div className="Homepage__Content">
+                    <Content />
+                </div>
+                <div className="Homepage__Check">
+                    <div className="Homepage__Check-text">
+                        Checkin
+                    </div>
+                </div>
             </div>
         )
     }
