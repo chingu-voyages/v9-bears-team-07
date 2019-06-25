@@ -1,5 +1,5 @@
 class ParksController < ApplicationController
-  before_action :set_park, only: [:show, :update, :destroy]
+  before_action :set_park, only: [:show, :update, :destroy, :checkin]
 
   # GET /parks
   def index
@@ -30,6 +30,22 @@ class ParksController < ApplicationController
       render json: @park
     else
       render json: @park.errors, status: :unprocessable_entity
+    end
+  end
+
+  def checkin
+    @user = User.find(params['park']['user']['id'])
+    if @user
+      if @park.users.include?(@user)
+        render plain: "You're already checked in!"
+      else
+        @park.users << @user
+        if @park.save
+          render json: @park, include: :users, status: :created, location: @park
+        else
+          render json: @park.errors, status: :unprocessable_entity
+        end
+      end
     end
   end
 
