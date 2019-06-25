@@ -62,27 +62,35 @@ class Login extends Component {
     render() {
         return (
             <div className="login">
-                {/* <GoogleLogout
-                    buttonText="Logout"
-                    onLogoutSuccess={this.logout}
-                /> */}
-                <form onSubmit={this.handleEmailLogin}>
-                  <label>Email</label>
-                  <p><input type="email" value={this.state.email} onChange={this.handleChange} name="email" /></p>
-                  <label>Password</label>
-                  <p><input type="password" value={this.state.password} onChange={this.handleChange} name="password" /></p>
-                  <input type="submit" id="submit" />
-                </form>
-                <GoogleLogin
-                    clientId="315721689688-0kcdvhqs7f2p8u6nc35v63ovlf59c62d.apps.googleusercontent.com"
-                    buttonText="Login"
-                    onSuccess={this.responseGoogle}
-                    onFailure={this.responseGoogle}
-                    cookiePolicy={'single_host_origin'}
-                />
+                <div className="login__form">
+                    <form onSubmit={this.handleEmailLogin}>
+                        <div className="input">Email</div>
+                        <p><input type="email" value={this.state.email} onChange={this.handleChange} name="email" /></p>
+                        <div className="input">Password</div>
+                        <p><input type="password" value={this.state.password} onChange={this.handleChange} name="password" /></p>
+                        <div className="input">
+                            <input type="submit" id="submit"value="Submit" className="submit"/>
+                        </div>
+                    </form>
+                </div>
+                <div className="login__google">
+                    <GoogleLogin
+                        clientId="315721689688-0kcdvhqs7f2p8u6nc35v63ovlf59c62d.apps.googleusercontent.com"
+                        buttonText="Login"
+                        onSuccess={this.responseGoogle}
+                        onFailure={this.responseGoogle}
+                        cookiePolicy={'single_host_origin'}
+                    />
+                </div>
             </div>
         )
     }
 }
 
 export default withRouter(Login);
+
+
+                {/* <GoogleLogout
+                    buttonText="Logout"
+                    onLogoutSuccess={this.logout}
+                /> */}
