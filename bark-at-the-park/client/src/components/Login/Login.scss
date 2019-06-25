@@ -1,3 +1,19 @@
-.log-btn {
+.login {
     margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  #submit {
+    width: 100%;
+    padding-bottom: 0.5em;
+  }
+  p {
+    padding-bottom: 0.5em;
+  }
 }

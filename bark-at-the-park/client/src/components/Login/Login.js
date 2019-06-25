@@ -53,7 +53,7 @@ class Login extends Component {
             email: '',
             password: ''
           })
-          // return this.props.history.push('/homepage')
+          return this.props.history.push('/homepage')
       })
       .catch(err => console.error(err))
 
@@ -61,14 +61,16 @@ class Login extends Component {
 
     render() {
         return (
-            <div className="log-btn">
+            <div className="login">
                 {/* <GoogleLogout
                     buttonText="Logout"
                     onLogoutSuccess={this.logout}
                 /> */}
                 <form onSubmit={this.handleEmailLogin}>
-                  <input type="email" value={this.state.email} onChange={this.handleChange} name="email" />
-                  <input type="password" value={this.state.password} onChange={this.handleChange} name="password" />
+                  <label>Email</label>
+                  <p><input type="email" value={this.state.email} onChange={this.handleChange} name="email" /></p>
+                  <label>Password</label>
+                  <p><input type="password" value={this.state.password} onChange={this.handleChange} name="password" /></p>
                   <input type="submit" id="submit" />
                 </form>
                 <GoogleLogin
