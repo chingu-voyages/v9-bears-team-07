@@ -22,3 +22,8 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+TODO:
+Connect frontend to the delete route
+Connect checking route

@@ -26,12 +26,12 @@ class Login extends Component {
             client_id: response.getAuthResponse().id_token
         })
         .then(res => {
+            axios.get('http://localhost:3000/users')
             console.log('res', res)
-            console.log('props',this.props)
             return this.props.history.push('/homepage')
         })
         .catch(err => console.error(err))
-        // localStorage.setItem('logged', true)
+        localStorage.setItem('logged', 'true')
 
     }
 
@@ -69,7 +69,7 @@ class Login extends Component {
                         <div className="input">Password</div>
                         <p><input type="password" value={this.state.password} onChange={this.handleChange} name="password" /></p>
                         <div className="input">
-                            <input type="submit" id="submit"value="Submit" className="submit"/>
+                            <input type="submit" id="submit" value="Sign Up" className="submit"/>
                         </div>
                     </form>
                 </div>
