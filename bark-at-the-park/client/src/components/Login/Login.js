@@ -26,7 +26,7 @@ class Login extends Component {
             client_id: response.getAuthResponse().id_token
         })
         .then(res => {
-            axios.get('http://localhost:3000/users')
+            // axios.get('http://localhost:3000/users')
             console.log('res', res)
             return this.props.history.push('/homepage')
         })

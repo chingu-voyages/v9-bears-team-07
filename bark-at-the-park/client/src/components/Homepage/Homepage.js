@@ -6,6 +6,8 @@ import axios from 'axios';
 //@ components
 import Navbar from '../Navbar/Navbar';
 import Content from '../Content/Content';
+import { Route } from 'react-router-dom';
+
 
 //@ styles
 import '../Homepage/Homepage.scss'
@@ -25,8 +27,11 @@ class Homepage extends Component {
         if (localStorage.getItem('logged') === 'true') {
             return (
                 <div className="Homepage">
+
                     <div className="Homepage__Navbar">
-                        <Navbar />
+                    <Route path="/homepage" component={Navbar}/>
+
+                        {/* <Navbar /> */}
                     </div>
                     <div className="Homepage__Content">
                         <Content />

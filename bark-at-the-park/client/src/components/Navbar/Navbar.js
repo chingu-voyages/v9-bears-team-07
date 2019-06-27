@@ -13,9 +13,8 @@ class Navbar extends Component {
     render() {
         return (
             <div className="Navbar">
-                <div>Home</div>
-                <div>Profile</div>
-                {/* <div>Friends</div> */}
+                <div onClick={() => this.props.history.push('/homepage')}>Home</div>
+                <div onClick={() => this.props.history.push('/profile')}>Profile</div>
                 <div onClick={() => this.logout()}>Logout</div>
             </div>
         )
