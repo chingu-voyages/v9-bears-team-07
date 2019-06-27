@@ -14,12 +14,29 @@
         // border: 2px solid black;
         width: 50vw;
     }
+
+    &__Header {
+        // border: 1px solid red;
+        padding-bottom: 12px;
+        padding-top: 16px;
+        padding-left: 14px;
+        padding-right: 14px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        background-color: rgb(245, 245, 178);
+        font-weight: bold;
+    }
+    
 }
 
 .Content__Parklist-park {
     // background: rgb(115, 115, 202);
     border: 2px solid black;
     margin: 5px;
+    padding: 2px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .Content__Parklist-park li {
@@ -40,4 +57,13 @@
 
 .active {
     background-color: rgb(52, 106, 255);
+}
+
+.checkedIn {
+    color: green;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-weight: bold;
+    // text-align: center;
 }

@@ -10,7 +10,7 @@ export default class Content extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            activeIndex: 0
+            activeIndex: ''
         }
     }
 
@@ -20,10 +20,12 @@ export default class Content extends Component {
         })
     }
     render() {
+        const { selectPark } = this.props;
+
         return (
             <div className="Content">
                 <div className="Content__Header">
-                    Hello! Please pick a park from the list below:
+                    Welcome! Please pick a park from the list below and check in:
                 </div>
                 <div className="Content__Map">
                     <Map />
@@ -32,15 +34,25 @@ export default class Content extends Component {
                     {parks.map((park, i) => {
                         return (
                             <div key={i} className="Content__Parklist-park">
-                                <ul onClick={() => this.toggleClass(i)}
-                                    className={this.state.activeIndex === i ? 'active' : null}>
-                                    <li>{park.name}</li>
-                                    <li>{park.location}</li>
-                                    <li>Users checked in: {park.online}</li>
-                                    {/* <li>Reviews: </li>
-                                    <li>Comment: {park.review.comment}</li>
-                                    <li>User: {park.review.user}</li> */}
-                                </ul>
+                                <div >
+                                    <ul onClick={() => { 
+                                        this.toggleClass(i)
+                                        selectPark(park)}}
+                                        className={this.state.activeIndex === i ? 'active' : null}>
+                                        <li>{park.name}</li>
+                                        <li>{park.location}</li>
+                                        <li>Users checked in: {park.online}</li>
+                            
+                                    </ul>
+                                </div>
+                                <span className={this.state.activeIndex === i ? 'checkedIn' : null}> 
+                                {this.props.checkedIn && this.state.activeIndex === i ?
+                                    'CHECKED IN'
+                                    :
+                                    null
+                                }
+                                {/* CHECKED IN! */}
+                                </span>
                          
                             </div>
                         )

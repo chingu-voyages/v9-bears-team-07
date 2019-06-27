@@ -88,9 +88,3 @@ class Login extends Component {
 }
 
 export default withRouter(Login);
-
-
-                {/* <GoogleLogout
-                    buttonText="Logout"
-                    onLogoutSuccess={this.logout}
-                /> */}
