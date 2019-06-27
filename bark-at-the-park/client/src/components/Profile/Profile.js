@@ -3,14 +3,30 @@ import Navbar from '../Navbar/Navbar'
 import { Route } from 'react-router-dom';
 import './Profile.scss'
 
+import axios from 'axios';
+
 export default class Profile extends Component {
+
+    componentWillMount() {
+        console.log('a montarse')
+        // const search = axios.get('/user/1').then(res => res.data)
+        // console.log('search', search)
+
+        async function asyncCall() {
+            var result = await axios.get('/users/1').then(res => res.data)
+            console.log(result);
+        };
+        
+        asyncCall();
+    }
+
     render() {
         return (
             <div>
                 <Route path="/profile" component={Navbar}/>
                 <div className="Profile">
-                    <div class="container">
-                        <div class="avatar-flip">
+                    <div className="container">
+                        <div className="avatar-flip">
                             <img src="http://media.idownloadblog.com/wp-content/uploads/2012/04/Phil-Schiller-headshot-e1362692403868.jpg" height="150" width="150" />
                             <img src="http://i1112.photobucket.com/albums/k497/animalsbeingdicks/abd-3-12-2015.gif~original" height="150" width="150" />
                         </div>
@@ -21,8 +37,8 @@ export default class Profile extends Component {
                         <div>Password: ***** </div>
                     </div>
                     
-                    <div class="container">
-                        <div class="avatar-flip">
+                    <div className="container">
+                        <div className="avatar-flip">
                             <img src="https://www.petmd.com/sites/default/files/Acute-Dog-Diarrhea-47066074.jpg" height="150" width="150" />
                             <img src="https://www.petmd.com/sites/default/files/Acute-Dog-Diarrhea-47066074.jpg" height="150" width="150" />
                         </div>

@@ -6,7 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 import LandingPage from './LandingPage/LandingPage';
 import Homepage from './Homepage/Homepage';
 import Profile from './Profile/Profile'
-import Navbar from './Navbar/Navbar'
+
 function App() {
   return (
     <Switch>

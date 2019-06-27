@@ -10,6 +10,7 @@
   
   &__google {
     padding-top: 50px;
+    font-size: 10px;
   }
   
 }
@@ -41,4 +42,8 @@ input[type=email]:focus, input[type=password]:focus {
   text-decoration: none;
   margin: 4px 2px;
   cursor: pointer;
+}
+
+#google {
+  font-size: 10px;
 }

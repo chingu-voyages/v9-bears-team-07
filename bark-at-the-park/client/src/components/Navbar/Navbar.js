@@ -7,6 +7,12 @@ import { withRouter } from 'react-router';
 class Navbar extends Component {
     logout() {
         localStorage.setItem('logged', 'false')
+        if (window.gapi) {
+            const auth2 = window.gapi.auth2.getAuthInstance()
+            if (auth2 != null) {
+                auth2.signOut().then(auth2.disconnect().then(this.props.onLogoutSuccess))
+            }
+        }
         this.props.history.push('/')
     }
 
