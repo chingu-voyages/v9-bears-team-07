@@ -32,7 +32,7 @@ class Login extends Component {
         })
         .catch(err => console.error(err))
         localStorage.setItem('logged', 'true')
-
+        this.props.history.push('/homepage') // remove this line!
     }
 
     handleChange = (event) => {
