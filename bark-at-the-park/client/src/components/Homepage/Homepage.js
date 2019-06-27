@@ -12,6 +12,7 @@ import { Route } from 'react-router-dom';
 //@ styles
 import '../Homepage/Homepage.scss'
 class Homepage extends Component {
+
     parkCheckin = () => {
       axios.patch('/checkin/1', {
         park: {
@@ -23,15 +24,14 @@ class Homepage extends Component {
       .then(res => console.log('response: ', res))
       .catch(err => console.error(err))
     }
+
     loggued() {
         if (localStorage.getItem('logged') === 'true') {
             return (
                 <div className="Homepage">
 
                     <div className="Homepage__Navbar">
-                    <Route path="/homepage" component={Navbar}/>
-
-                        {/* <Navbar /> */}
+                        <Route path="/homepage" component={Navbar}/>
                     </div>
                     <div className="Homepage__Content">
                         <Content />
@@ -48,6 +48,7 @@ class Homepage extends Component {
             return null
         }
     }
+    
     render() {
         return this.loggued()
     }

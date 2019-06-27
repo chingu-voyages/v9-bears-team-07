@@ -10,7 +10,34 @@
         // border: 1px solid red;
     }
 
-    &__ParkList ul {
-        border: 1px solid pink;
+    &__ParkList {
+        // border: 2px solid black;
+        width: 50vw;
     }
+}
+
+.Content__Parklist-park {
+    // background: rgb(115, 115, 202);
+    border: 2px solid black;
+    margin: 5px;
+}
+
+.Content__Parklist-park li {
+    list-style-type: none;
+    // padding: 2px;
+    padding-left: 15px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.Content__Parklist-park ul:hover {
+    background: black;
+}
+
+.checked {
+    background: rgb(118, 118, 255);
+}
+
+.active {
+    background-color: rgb(52, 106, 255);
 }
