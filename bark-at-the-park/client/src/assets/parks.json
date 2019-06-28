@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Lincoln park",
+        "location": "Dog Avenue 12",
+        "online": "3",
+        "review": 
+            {
+                "comment": "lovely place!!",
+                "user": "Karina Damian"
+            }
+    },
+    {
+        "name": "Woods Park",
+        "location": "Log Street 2334",
+        "online": "1",
+        "review": 
+            {
+                "comment": "too many trees!",
+                "user": "Hugo Boss"
+            }
+    },
+    {
+        "name": "Sunny Place",
+        "location": "Brightside 23",
+        "online": "5",
+        "review": 
+            {
+                "comment": "Last week someone stole my dog",
+                "user": "Peter parker"
+            }
+    }
+]
