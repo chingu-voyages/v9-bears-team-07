@@ -42,7 +42,6 @@ export default class Content extends Component {
                                         <li>{park.name}</li>
                                         <li>{park.location}</li>
                                         <li>Users checked in: {park.online}</li>
-                            
                                     </ul>
                                 </div>
                                 <span className={this.state.activeIndex === i ? 'checkedIn' : null}> 

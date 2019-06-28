@@ -21,7 +21,6 @@ class Homepage extends Component {
         this.selectedPark = this.selectedPark.bind(this);
     }
     parkCheckin = () => {
-        const { selectedPark } = this.state
         axios.patch('/checkin/1', {
             park: {
             user: {
@@ -35,6 +34,10 @@ class Homepage extends Component {
         this.setState({ checkedIn: true})
     }
 
+    parkCheckout = () => {
+        this.setState( { checkedIn: false})
+    }
+
     selectedPark = (selectedPark) => {
 
         this.setState({
@@ -43,7 +46,6 @@ class Homepage extends Component {
     }
 
     loggued() {
-
         if (localStorage.getItem('logged') === 'true') {
             return (
                 <div className="Homepage">
@@ -54,12 +56,17 @@ class Homepage extends Component {
                         <Content selectPark={this.selectedPark} checkedIn={this.state.checkedIn}/>
                     </div>
                     <div className="Homepage__Check">
-                        <div className="Homepage__Check-text" onClick={this.parkCheckin}>
+                        <div>
                             {
                                 this.state.checkedIn ?
-                                    'check out' : 'check in'
+                                    <div 
+                                        onClick={this.parkCheckout}
+                                        className="Homepage__Check-text">Checkout</div> 
+                                    : 
+                                    <div 
+                                        className="Homepage__Check-text"
+                                        onClick={this.parkCheckin}>Checkin</div> 
                             }
-                     
                         </div>
                     </div>
                 </div>

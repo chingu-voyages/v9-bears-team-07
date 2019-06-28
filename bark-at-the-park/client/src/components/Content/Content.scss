@@ -48,7 +48,8 @@
 }
 
 .Content__Parklist-park ul:hover {
-    background: black;
+    color: green;
+    // font-size: 1.1rem;
 }
 
 .checked {
@@ -56,7 +57,10 @@
 }
 
 .active {
-    background-color: rgb(52, 106, 255);
+    // background-color: rgb(52, 106, 255);
+    color: green;
+    font-size: 1.05rem;
+    font-weight: bold;
 }
 
 .checkedIn {
