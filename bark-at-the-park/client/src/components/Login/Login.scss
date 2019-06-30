@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+
   
   &__form {
     padding-top: 50px;
@@ -9,6 +10,7 @@
   
   &__google {
     padding-top: 50px;
+    font-size: 10px;
   }
   
 }
@@ -33,10 +35,15 @@ input[type=email]:focus, input[type=password]:focus {
 
 .submit {
   background-color: #4CAF50;
+  font-size: 15px;
   border: none;
   color: white;
   padding: 16px 32px;
   text-decoration: none;
   margin: 4px 2px;
   cursor: pointer;
+}
+
+#google {
+  font-size: 10px;
 }
