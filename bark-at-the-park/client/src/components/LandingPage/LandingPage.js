@@ -1,6 +1,7 @@
 //@ componentes
 import React, { useLayoutEffect } from 'react'
 import Login from '../Login/Login'; 
+import LoginReducer from '../Login/LoginReducer'; 
 
 import { withRouter } from 'react-router';
 
@@ -26,7 +27,7 @@ const LandingPage = function (props) {
             <img src="../../art.png" alt="Smiley face" height="400"></img>
           </div>
           <div className="LandingPage__Content-Login">
-            <Login />
+            <LoginReducer />
           </div>
         </div>
       </div>
