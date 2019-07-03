@@ -1,5 +1,5 @@
 //@ core
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import { withRouter } from 'react-router';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
@@ -17,7 +17,8 @@ const Homepage = (props) => {
   let [ checkedIn, setCheckIn ] = useState(false);
   const logged = useSelector(state => state);
 
-  function parkCheckin() {
+  function parkCheckin(option) {
+    // option shoud be Checkin or Checkout
     axios.patch('/checkin/1', {
       park: {
         user: {
@@ -31,10 +32,6 @@ const Homepage = (props) => {
     setCheckIn(checkedIn = true);
   }
 
-  function parkCheckout() {
-    setCheckIn(checkedIn = false);
-  }
-
   function selectPark(selectedPark) {
     setSelectedPark(selectedPark);
   }
@@ -46,26 +43,11 @@ const Homepage = (props) => {
           <Route path="/homepage" component={Navbar} />
         </div>
         <div className="Homepage__Content">
-          <Content selectPark={selectPark} checkedIn={this.state.checkedIn} />
-        </div>
-        <div className="Homepage__Check">
-          <div>
-            {
-              this.state.checkedIn ?
-                <div
-                  onClick={parkCheckout}
-                  className="Homepage__Check-text">Checkout</div>
-                :
-                <div
-                  className="Homepage__Check-text"
-                  onClick={parkCheckin}>Checkin</div>
-            }
-          </div>
+          <Content selectPark={selectPark} checkedIn={checkedIn} />
         </div>
       </div>
     )
   } else {
-    console.log(props)
     return props.history.push('/')
   }
 }

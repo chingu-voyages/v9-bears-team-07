@@ -1,16 +1,14 @@
 
 import React, { useState } from 'react';
 import { GoogleLogin } from 'react-google-login';
-import { withRouter } from 'react-router';
+// import { withRouter } from 'react-router';
 import axios from 'axios';
 import './Login.scss';
-import reducer from '../../reducer';
 import { useDispatch } from 'react-redux'
 
 export default function Login() {
   const [ email, setEmail ] = useState('');
   const [ password, setPassword ] = useState('');
-  // const [ state, dispatch ] = useReducer(reducer, { logged: 'false'})
   const dispatch = useDispatch()
 
   const responseGoogle = (response) => {
@@ -30,13 +28,14 @@ export default function Login() {
   }
 
   const handleEmailLogin = (event) => {
-    event.preventDefault();
-    console.log(email, ' - ',password)
-    // axios.post('http://localhost:3001/auth/email_login', { botto
+    // WORK ON THIS SECTIONS WITH HOOKS
+    // event.preventDefault();
+    // console.log(email, ' - ',password)
+    // axios.post('http://localhost:3001/auth/email_login', {
     //   auth: this.state
     // })
     //   .then(res => {
-    //     console.log('res', res) caro
+    //     console.log('res', res)
     //     console.log('props', this.props)
     //     this.setState({
     //       email: '',
