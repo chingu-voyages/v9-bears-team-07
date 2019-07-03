@@ -1,7 +1,9 @@
 //@ componentes
 import React, { useLayoutEffect } from 'react'
-import Login from '../Login/Login'; 
-import LoginReducer from '../Login/LoginReducer'; 
+// import Login from '../Login/Login'; 
+import Login from '../Login/LoginReducer'; 
+import { useSelector } from 'react-redux';
+
 
 import { withRouter } from 'react-router';
 
@@ -9,7 +11,10 @@ import { withRouter } from 'react-router';
 import './LandingPage.scss';
 
 
-const LandingPage = function (props) {   
+const LandingPage = function (props) {
+  const logged = useSelector(state => state);
+  console.log('LandingPage: ',logged)
+
   useLayoutEffect(()=> {
     let login = localStorage.getItem('logged')
 
@@ -27,7 +32,7 @@ const LandingPage = function (props) {
             <img src="../../art.png" alt="Smiley face" height="400"></img>
           </div>
           <div className="LandingPage__Content-Login">
-            <LoginReducer />
+            <Login />
           </div>
         </div>
       </div>

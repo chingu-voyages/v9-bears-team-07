@@ -1,6 +1,7 @@
 //@ core
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
 
 //@ components
@@ -20,18 +21,23 @@ class Homepage extends Component {
         }
         this.selectedPark = this.selectedPark.bind(this);
     }
-    parkCheckin = () => {
-        axios.patch('/checkin/1', {
-            park: {
-            user: {
-                id: 8
-            }
-            }
-        })
-        .then(res => console.log('response: ', res))
-        .catch(err => console.error(err))
 
-        this.setState({ checkedIn: true})
+    selector() {
+      const logged = useSelector(state => state);
+    }
+
+    parkCheckin = () => {
+      axios.patch('/checkin/1', {
+        park: {
+          user: {
+            id: 8
+          }
+        }
+      })
+      .then(res => console.log('response: ', res))
+      .catch(err => console.error(err))
+
+      this.setState({ checkedIn: true })
     }
 
     parkCheckout = () => {

@@ -1,16 +1,18 @@
 
-import React, { useReducer, useState } from 'react';
+import React, { useState } from 'react';
 import { GoogleLogin } from 'react-google-login';
 import { withRouter } from 'react-router';
 import axios from 'axios';
 import './Login.scss';
 import reducer from '../../reducer';
+import { useDispatch } from 'react-redux'
 
 export default function Login() {
   const [ email, setEmail ] = useState('');
   const [ password, setPassword ] = useState('');
-  const [ state, dispatch ] = useReducer(reducer, { logged: 'false'})
-  console.log(state)
+  // const [ state, dispatch ] = useReducer(reducer, { logged: 'false'})
+  const dispatch = useDispatch()
+
   const responseGoogle = (response) => {
     axios.post('http://localhost:3001/auth/google_login', {
       client_id: response.getAuthResponse().id_token
@@ -21,20 +23,20 @@ export default function Login() {
     })
     .catch(err => console.error(err))
 
-    dispatch({ type: 'LOGGED_OK '})
+    dispatch({ type: 'LOGGED_OK'})
 
-    localStorage.setItem('logged', 'true')
-    // this.props.history.push('/homepage')
+    // localStorage.setItem('logged', 'true')
+    this.props.history.push('/homepage')
   }
 
   const handleEmailLogin = (event) => {
     event.preventDefault();
     console.log(email, ' - ',password)
-    // axios.post('http://localhost:3001/auth/email_login', {
+    // axios.post('http://localhost:3001/auth/email_login', { botto
     //   auth: this.state
     // })
     //   .then(res => {
-    //     console.log('res', res)
+    //     console.log('res', res) caro
     //     console.log('props', this.props)
     //     this.setState({
     //       email: '',
@@ -47,7 +49,6 @@ export default function Login() {
 
   return (
     <div className="login">
-      <h1>Loggued: {state.logged}</h1>
       <div className="login__form">
         <form onSubmit={handleEmailLogin}>
           <div className="input">Email</div>
