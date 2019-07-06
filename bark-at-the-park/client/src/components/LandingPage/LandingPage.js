@@ -15,7 +15,7 @@ const LandingPage = function (props) {
   const user = useSelector(state => state);
 
   useEffect(() => {
-    console.log('effect',user)
+    // console.log('effect',user)
     if (user && user.logged) {
       props.history.push('/homepage')
     }
