@@ -1,49 +1,43 @@
-
 import React, { useState } from 'react';
-import { GoogleLogin } from 'react-google-login';
-// import { withRouter } from 'react-router';
+// import { GoogleLogin } from 'react-google-login';
+import { withRouter } from 'react-router';
 import axios from 'axios';
 import './Login.scss';
 import { useDispatch } from 'react-redux'
 
-export default function Login() {
+function Login() {
   const [ email, setEmail ] = useState('');
   const [ password, setPassword ] = useState('');
   const dispatch = useDispatch()
 
-  const responseGoogle = (response) => {
-    axios.post('http://localhost:3001/auth/google_login', {
-      client_id: response.getAuthResponse().id_token
-    })
+  // Google Auth disabled - requires bugfix
+  // const responseGoogle = (response) => {
+  //   axios.post('http://localhost:3001/auth/google_login', {
+  //     client_id: response.getAuthResponse().id_token
+  //   })
+  //   .then(res => {
+  //     axios.get('http://localhost:3000/users')
+  //     return this.props.history.push('/homepage')
+  //   })
+  //   .catch(err => console.error(err))
+
+  //   dispatch({ type: 'LOGGED_OK'})
+
+  //   this.props.history.push('/homepage')
+  // }
+
+  const handleEmailLogin = (event) => {
+    event.preventDefault();
+    const auth = { email, password }
+    axios.post('http://localhost:3001/auth/email_login', { auth })
     .then(res => {
-      axios.get('http://localhost:3000/users')
+      setEmail('');
+      setPassword('');
+
+      dispatch({ type: 'LOGGED_OK'})
       return this.props.history.push('/homepage')
     })
     .catch(err => console.error(err))
-
-    dispatch({ type: 'LOGGED_OK'})
-
-    // localStorage.setItem('logged', 'true')
-    this.props.history.push('/homepage')
-  }
-
-  const handleEmailLogin = (event) => {
-    // WORK ON THIS SECTIONS WITH HOOKS
-    // event.preventDefault();
-    // console.log(email, ' - ',password)
-    // axios.post('http://localhost:3001/auth/email_login', {
-    //   auth: this.state
-    // })
-    //   .then(res => {
-    //     console.log('res', res)
-    //     console.log('props', this.props)
-    //     this.setState({
-    //       email: '',
-    //       password: ''
-    //     })
-    //     return this.props.history.push('/homepage')
-    //   })
-    //   .catch(err => console.error(err))
   }
 
   return (
@@ -59,38 +53,17 @@ export default function Login() {
           </div>
         </form>
       </div>
-      <div className="login__google">
+      {/* <div className="login__google">
         <GoogleLogin
           clientId="315721689688-0kcdvhqs7f2p8u6nc35v63ovlf59c62d.apps.googleusercontent.com"
-          buttonText="Login"
+          buttonText="Signup with Google"
           onSuccess={responseGoogle}
           onFailure={responseGoogle}
           cookiePolicy={'single_host_origin'}
         />
-      </div>
+      </div> */}
     </div>
   )
 }
 
-
-
-
-//     handleChange = (event) => {
-//       this.setState({
-//         [event.target.name]: event.target.value
-//       })
-//     }
-
-//     handleEmailLogin = (event) => {
-
-
-//     }
-
-//     render() {
-//         return (
-
-//         )
-//     }
-// }
-
-// export default withRouter(Login);
+export default withRouter(Login);
