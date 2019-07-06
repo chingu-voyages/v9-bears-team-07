@@ -42,15 +42,16 @@ export default class Content extends Component {
                                         <li>{park.name}</li>
                                         <li>{park.location}</li>
                                         <li>Users checked in: {park.online}</li>
+                            
                                     </ul>
                                 </div>
-                                <span className={this.state.activeIndex === i ? 'checkedIn' : null}> 
-                                {this.props.checkedIn && this.state.activeIndex === i ?
+                                <span className={this.state.activeIndex === i && this.state.checkout ? 'checkedIn' : null}> 
+                                {
+                                    this.props.checkedIn && this.state.activeIndex === i ?
                                     'CHECKED IN'
                                     :
                                     null
                                 }
-                                {/* CHECKED IN! */}
                                 </span>
                          
                             </div>

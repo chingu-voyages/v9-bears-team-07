@@ -1,6 +1,9 @@
 //@ componentes
-import React, { useLayoutEffect } from 'react'
-import Login from '../Login/Login'; 
+import React, { useLayoutEffect, useEffect } from 'react'
+// import Login from '../Login/Login'; 
+import Login from '../Login/LoginReducer'; 
+import { useSelector } from 'react-redux';
+
 
 import { withRouter } from 'react-router';
 
@@ -8,13 +11,21 @@ import { withRouter } from 'react-router';
 import './LandingPage.scss';
 
 
-const LandingPage = function (props) {   
-  useLayoutEffect(()=> {
-    let login = localStorage.getItem('logged')
+const LandingPage = function (props) {
+  const user = useSelector(state => state);
 
-    if (login === 'true') {
+  useEffect(() => {
+    console.log('effect',user)
+    if (user && user.logged) {
       props.history.push('/homepage')
-    } 
+    }
+  })
+  useLayoutEffect(()=> {
+    // let login = localStorage.getItem('logged')
+
+    // if (user.logged) {
+    //   props.history.push('/homepage')
+    // } 
   },[]);
 
   return (
