@@ -2,10 +2,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-
-    // &__ParkList {
-    //     width: 400px;
-    // }
+    border: 1px solid brown;
 
     &__Header {
         padding-bottom: 12px;
@@ -16,57 +13,28 @@
         margin-top: 10px;
         background-color: rgb(245, 245, 178);
         font-weight: bold;
+        border: 1px solid black;
     }
 
     &__Body {
+        margin: 0 auto;
         display: flex;
         flex-direction: row;
+        width: 60vw;
         justify-content: space-between;
+        border: 2px solid green;
 
-        // &__Map {
-        //     width: 500px;
-        // }
+        &-Map {
+            margin: 0;
+            border: 2px solid pink;
+            // width: 500px;
+        }
+
+        &-Parks {
+            margin: 0;
+            border: 2px solid red;
+            // width: 200px;
+        }
     }
     
-}
-
-.Content__Parklist-park {
-    // background: rgb(115, 115, 202);
-    border: 2px solid black;
-    margin: 5px;
-    padding: 2px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.Content__Parklist-park li {
-    list-style-type: none;
-    // padding: 2px;
-    padding-left: 15px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-}
-
-.Content__Parklist-park ul:hover {
-    color: green;
-    // font-size: 1.1rem;
-}
-
-.checked {
-    background: rgb(118, 118, 255);
-}
-
-.active {
-    color: green;
-    font-size: 1.05rem;
-    font-weight: bold;
-}
-
-.checkedIn {
-    color: green;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-weight: bold;
 }
