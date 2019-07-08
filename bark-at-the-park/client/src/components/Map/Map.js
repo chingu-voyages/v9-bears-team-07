@@ -8,7 +8,7 @@ export default class Map extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            location: [-58.2554584,-37.8464067]
+            location: [-48.2554584,-37.8464067]
         }
     }
 
@@ -49,7 +49,7 @@ export default class Map extends Component {
                     center={[location[1], location[0]]}
                     containerStyle={{
                         height: "50vh",
-                        width: "50vw",
+                        width: "500px",
                 }}>
                     <Layer
                         type="symbol"

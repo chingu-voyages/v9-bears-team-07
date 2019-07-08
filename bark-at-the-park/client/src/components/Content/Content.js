@@ -27,38 +27,39 @@ export default class Content extends Component {
                 <div className="Content__Header">
                     Welcome! Please pick a park from the list below and check in:
                 </div>
-                <div className="Content__Map">
-                    <Map />
-                </div>
-                <div className="Content__ParkList">
-                    {parks.map((park, i) => {
-                        return (
-                            <div key={i} className="Content__Parklist-park">
-                                <div >
-                                    <ul onClick={() => { 
-                                        this.toggleClass(i)
-                                        selectPark(park)}}
-                                        className={this.state.activeIndex === i ? 'active' : null}>
-                                        <li>{park.name}</li>
-                                        <li>{park.location}</li>
-                                        <li>Users checked in: {park.online}</li>
+                <div className="Content__Body">
+                    {/* <div className="Content__Body__Map"> */}
+                        <Map />
+                    {/* </div> */}
+                    <div>
+                        {parks.map((park, i) => {
+                            return (
+                                <div key={i} className="Content__Parklist-park">
+                                    <div >
+                                        <ul onClick={() => { 
+                                            this.toggleClass(i)
+                                            selectPark(park)}}
+                                            className={this.state.activeIndex === i ? 'active' : null}>
+                                            <li>{park.name}</li>
+                                            <li>{park.location}</li>
+                                            <li>Users checked in: {park.online}</li>
+                                
+                                        </ul>
+                                    </div>
+                                    <span className={this.state.activeIndex === i && this.state.checkout ? 'checkedIn' : null}> 
+                                    {
+                                        this.props.checkedIn && this.state.activeIndex === i ?
+                                        'CHECKED IN'
+                                        :
+                                        null
+                                    }
+                                    </span>
                             
-                                    </ul>
                                 </div>
-                                <span className={this.state.activeIndex === i && this.state.checkout ? 'checkedIn' : null}> 
-                                {
-                                    this.props.checkedIn && this.state.activeIndex === i ?
-                                    'CHECKED IN'
-                                    :
-                                    null
-                                }
-                                </span>
-                         
-                            </div>
-                        )
-                    })}
+                            )
+                        })}
+                    </div>
                 </div>
-
             </div>
         )
     }

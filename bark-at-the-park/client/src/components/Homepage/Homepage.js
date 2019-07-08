@@ -36,7 +36,8 @@ const Homepage = (props) => {
     // setSelectedPark(selectedPark);
   }
 
-  if (logged) {
+  // if (logged) {
+  //   console.log('render')
     return (
       <div className="Homepage">
         <div className="Homepage__Navbar">
@@ -47,9 +48,9 @@ const Homepage = (props) => {
         </div>
       </div>
     )
-  } else {
-    return props.history.push('/')
-  }
+  // } else {
+  //   return props.history.push('/')
+  // }
 }
 
 export default withRouter(Homepage)

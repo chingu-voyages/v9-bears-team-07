@@ -1,22 +1,13 @@
 .Content {
-    // border: 2px solid black;
     height: 100%;
-    // width: 100vw;
     display: flex;
     flex-direction: column;
-    // justify-content: space-between;
+
+    // &__ParkList {
+    //     width: 400px;
+    // }
 
     &__Header {
-        // border: 1px solid red;
-    }
-
-    &__ParkList {
-        // border: 2px solid black;
-        width: 50vw;
-    }
-
-    &__Header {
-        // border: 1px solid red;
         padding-bottom: 12px;
         padding-top: 16px;
         padding-left: 14px;
@@ -25,6 +16,16 @@
         margin-top: 10px;
         background-color: rgb(245, 245, 178);
         font-weight: bold;
+    }
+
+    &__Body {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        // &__Map {
+        //     width: 500px;
+        // }
     }
     
 }
@@ -57,7 +58,6 @@
 }
 
 .active {
-    // background-color: rgb(52, 106, 255);
     color: green;
     font-size: 1.05rem;
     font-weight: bold;
@@ -69,5 +69,4 @@
     flex-direction: column;
     justify-content: center;
     font-weight: bold;
-    // text-align: center;
 }
