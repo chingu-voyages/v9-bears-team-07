@@ -44,7 +44,9 @@ export default class Content extends Component {
                             })}
                         </div>
                         <div className="Content__Body-Parks-Checkin">
-                            CHECKIN
+                            <div>
+                                CHECK IN
+                            </div>
                         </div>
                     </div>
                 </div>
