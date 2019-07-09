@@ -1,73 +1,90 @@
 .Content {
-    // border: 2px solid black;
     height: 100%;
-    // width: 100vw;
     display: flex;
     flex-direction: column;
-    // justify-content: space-between;
+    // border: 1px solid brown;
 
     &__Header {
-        // border: 1px solid red;
-    }
-
-    &__ParkList {
-        // border: 2px solid black;
-        width: 50vw;
-    }
-
-    &__Header {
-        // border: 1px solid red;
         padding-bottom: 12px;
         padding-top: 16px;
         padding-left: 14px;
         padding-right: 14px;
-        margin-bottom: 10px;
+        // margin-bottom: 10px;
         margin-top: 10px;
         background-color: rgb(245, 245, 178);
         font-weight: bold;
+        // border: 1px solid black;
+    }
+
+    &__Body {
+        margin: 0 auto;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+        // width: 60vw;
+        justify-content: space-between;
+        // border: 2px solid green;
+
+        &-Map {
+            margin: 0;
+            // border: 1px solid black;
+            // width: 500px;
+        }
+
+        &-Parks {
+            margin: 0;
+            // border: 2px solid red;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; 
+            width: 300px;
+            text-align: center;
+            
+            &-list {
+                width: 100%;
+
+                &-park {
+                    font-size: 12px;
+                    margin: 7px;
+                    // padding: 5px;
+                    border-radius: 3px;
+                    border: 1px solid black;
+                    flex-grow: 1;
+                }
+
+                // &-park > h3 {
+                //     margin: 0;
+                // }
+
+                &-park:hover > h3 {
+                    background: rgb(152, 152, 240);
+                    color: white;
+                }
+
+                // h3:hover {
+                //     background-color: red;
+                // }
+            }
+            
+
+            &-Checkin {
+                height:100%;
+                width: 100%;
+                display: flex;
+                align-items: center;
+
+                div {
+                    // height: 50px;
+                    color: white;
+                    font-weight: bold;
+                    background: black;
+                    border-radius: 30px;
+                    padding: 10px;
+                    width: 150px;
+                    text-align: center;
+                }
+            }
+        }
     }
     
-}
-
-.Content__Parklist-park {
-    // background: rgb(115, 115, 202);
-    border: 2px solid black;
-    margin: 5px;
-    padding: 2px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.Content__Parklist-park li {
-    list-style-type: none;
-    // padding: 2px;
-    padding-left: 15px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-}
-
-.Content__Parklist-park ul:hover {
-    color: green;
-    // font-size: 1.1rem;
-}
-
-.checked {
-    background: rgb(118, 118, 255);
-}
-
-.active {
-    // background-color: rgb(52, 106, 255);
-    color: green;
-    font-size: 1.05rem;
-    font-weight: bold;
-}
-
-.checkedIn {
-    color: green;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-weight: bold;
-    // text-align: center;
 }

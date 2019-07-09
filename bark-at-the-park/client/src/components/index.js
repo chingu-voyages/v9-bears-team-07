@@ -4,8 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 
 //@ components
 import LandingPage from './LandingPage/LandingPage';
-// import Homepage from './Homepage/Homepage';
-import Homepage from './Homepage/HomepageHook';
+import Homepage from './Homepage/Homepage';
 import Profile from './Profile/Profile'
 
 function App() {

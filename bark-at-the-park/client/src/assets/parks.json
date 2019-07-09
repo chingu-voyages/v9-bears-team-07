@@ -28,5 +28,15 @@
                 "comment": "Last week someone stole my dog",
                 "user": "Peter parker"
             }
+    },
+    {
+        "name": "Lovely Bird",
+        "location": "Flappy Bird 23",
+        "online": "5",
+        "review": 
+            {
+                "comment": "Last week someone stole my dog",
+                "user": "Peter parker"
+            }
     }
 ]

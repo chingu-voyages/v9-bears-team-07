@@ -5,7 +5,7 @@ import axios from 'axios';
 import './Login.scss';
 import { useDispatch } from 'react-redux'
 
-function Login() {
+function Login(props) {
   const [ email, setEmail ] = useState('');
   const [ password, setPassword ] = useState('');
   const dispatch = useDispatch()
@@ -35,7 +35,8 @@ function Login() {
       setPassword('');
 
       dispatch({ type: 'LOGGED_OK'})
-      return this.props.history.push('/homepage')
+      console.log('res',res)
+      return props.history.push('/homepage')
     })
     .catch(err => console.error(err))
   }
