@@ -1,5 +1,5 @@
 class ParksController < ApplicationController
-  before_action :set_park, only: [:show, :update, :destroy, :checkin]
+  before_action :set_park, only: [:show, :update, :destroy, :checkin, :checkout]
 
   # GET /parks
   def index
@@ -30,6 +30,13 @@ class ParksController < ApplicationController
       render json: @park
     else
       render json: @park.errors, status: :unprocessable_entity
+    end
+  end
+
+  def checkout
+    @user = User.find(params['park']['user']['id'])
+    if @park.users.delete(@user)
+      render plain: "You have checked out. Thanks for visiting!"
     end
   end
 
