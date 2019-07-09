@@ -1,27 +1,14 @@
 import React, { Component } from 'react'
 
 import Map from '../Map/Map'
-
+import Check from '../Check/Check'
 import './Content.scss'
 
 import parks from '../../assets/parks.json'
 
 export default class Content extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            activeIndex: ''
-        }
-    }
 
-    toggleClass(index, e) {
-        this.setState({
-            activeIndex: index
-        })
-    }
     render() {
-        const { selectPark } = this.props;
-
         return (
             <div className="Content">
                 <div className="Content__Header">
@@ -44,9 +31,9 @@ export default class Content extends Component {
                             })}
                         </div>
                         <div className="Content__Body-Parks-Checkin">
-                            <div>
-                                CHECK IN
-                            </div>
+                            {/* <div> */}
+                                <Check />
+                            {/* </div> */}
                         </div>
                     </div>
                 </div>
