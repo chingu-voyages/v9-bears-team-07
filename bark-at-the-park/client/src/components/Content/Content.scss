@@ -2,18 +2,15 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    // border: 1px solid brown;
 
     &__Header {
         padding-bottom: 12px;
         padding-top: 16px;
         padding-left: 14px;
         padding-right: 14px;
-        // margin-bottom: 10px;
         margin-top: 10px;
         background-color: rgb(245, 245, 178);
         font-weight: bold;
-        // border: 1px solid black;
     }
 
     &__Body {
@@ -21,19 +18,14 @@
         margin-top: 20px;
         display: flex;
         flex-direction: row;
-        // width: 60vw;
         justify-content: space-between;
-        // border: 2px solid green;
 
         &-Map {
             margin: 0;
-            // border: 1px solid black;
-            // width: 500px;
         }
 
         &-Parks {
             margin: 0;
-            // border: 2px solid red;
             display: flex;
             flex-direction: column;
             justify-content: space-between; 
@@ -46,24 +38,16 @@
                 &-park {
                     font-size: 12px;
                     margin: 7px;
-                    // padding: 5px;
                     border-radius: 3px;
                     border: 1px solid black;
                     flex-grow: 1;
                 }
 
-                // &-park > h3 {
-                //     margin: 0;
-                // }
-
                 &-park:hover > h3 {
                     background: rgb(152, 152, 240);
                     color: white;
+                    cursor: pointer;
                 }
-
-                // h3:hover {
-                //     background-color: red;
-                // }
             }
             
 
@@ -72,9 +56,8 @@
                 width: 100%;
                 display: flex;
                 align-items: center;
-
+                
                 div {
-                    // height: 50px;
                     color: white;
                     font-weight: bold;
                     background: black;
@@ -82,8 +65,10 @@
                     padding: 10px;
                     width: 150px;
                     text-align: center;
+                    cursor: pointer;
                 }
             }
+            
         }
     }
     
