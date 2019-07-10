@@ -29,7 +29,7 @@ function Login(props) {
   const handleEmailLogin = (event) => {
     event.preventDefault();
     const auth = { email, password }
-    axios.post('http://localhost:3001/auth/email_login', { auth })
+    axios.post('/auth/email_login', { auth })
     .then(res => {
       setEmail('');
       setPassword('');
