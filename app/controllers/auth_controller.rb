@@ -1,5 +1,4 @@
 class AuthController < ApplicationController
-  class AuthController < ApplicationController
 
     def google_login
       validator = GoogleIDToken::Validator.new
@@ -41,7 +40,4 @@ class AuthController < ApplicationController
       end
 
     end
-  end
-
-
 end
