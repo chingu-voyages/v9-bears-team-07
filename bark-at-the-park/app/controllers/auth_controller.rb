@@ -31,7 +31,7 @@ class AuthController < ApplicationController
       u.password = params['auth']['password']
       u.logged_in = true
     end
-    
+
     if @user.save && @user.authenticate(params['auth']['password'])
       session[:user_id] = @user.id
       render json: @user, status: :created
@@ -41,21 +41,3 @@ class AuthController < ApplicationController
 
   end
 end
-
-# {"iss"=>"accounts.google.com",
-#  "azp"=>"315721689688-0kcdvhqs7f2p8u6nc35v63ovlf59c62d.apps.googleusercontent.com",
-#  "aud"=>"315721689688-0kcdvhqs7f2p8u6nc35v63ovlf59c62d.apps.googleusercontent.com",
-#  "sub"=>"102120687465434104307",
-#  "email"=>"jebediahelliott@gmail.com",
-#  "email_verified"=>true,
-#  "at_hash"=>"qHwy0L1UfUdkgzRRRuRstQ",
-#  "name"=>"Jebediah Elliott",
-#  "picture"=>
-#   "https://lh5.googleusercontent.com/-X73fjHXK2ts/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rfwq-c18c12XIaau7H2-WG1zN0ksQ/s96-c/photo.jpg",
-#  "given_name"=>"Jebediah",
-#  "family_name"=>"Elliott",
-#  "locale"=>"en",
-#  "iat"=>1560540713,
-#  "exp"=>1560544313,
-#  "jti"=>"da1999931399534e5d2cdae77f15a8a3dc71dfa0",
-#  "cid"=>"315721689688-0kcdvhqs7f2p8u6nc35v63ovlf59c62d.apps.googleusercontent.com"}
