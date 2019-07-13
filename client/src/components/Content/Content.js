@@ -11,13 +11,30 @@ export default class Content extends Component {
         super(props);
         this.state = {
             active: false,
+            selectedPark: '',
+            checkin: ''
         };
         this.toggleClass = this.toggleClass.bind(this)
+        this.handleCheckin = this.handleCheckin.bind(this)
     }
-    toggleClass(){
-        const currentState = this.state.active;
-        this.setState({ active: !currentState });
+
+    toggleClass(park) {
+        this.setState({selectedPark: park.name})
     }
+
+    handleCheckin(status) {
+        if (status) {
+            this.setState({
+                checkin: ''
+            })
+        } else{
+            this.setState({
+                checkin: this.state.selectedPark,
+                active: status
+            })
+        }
+    }
+
     render() {
         return (
             <div className="Content">
@@ -33,9 +50,8 @@ export default class Content extends Component {
                             {parks.map((park, i) => {
                                 return (
                                     <div key={i} 
-                                        // className="Content__Body-Parks-list-park"
-                                        className={this.state.active ? 'Content__Body-Parks-list-park active': 'Content__Body-Parks-list-park'} 
-                                        onClick={this.toggleClass}
+                                        className='Content__Body-Parks-list-park'
+                                        onClick={() => this.toggleClass(park)}
                                     >
                                         <h3>{park.name}</h3>
                                         <h3>{park.location}</h3>
@@ -45,9 +61,10 @@ export default class Content extends Component {
                             })}
                         </div>
                         <div className="Content__Body-Parks-Checkin">
-                            {/* <div> */}
-                                <Check />
-                            {/* </div> */}
+                            <Check handleCheckin={this.handleCheckin}/>
+                        </div>
+                        <div>
+                            Selected park: {this.state.checkin}
                         </div>
                     </div>
                 </div>
