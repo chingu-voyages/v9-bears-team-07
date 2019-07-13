@@ -64,7 +64,12 @@ export default class Content extends Component {
                             <Check handleCheckin={this.handleCheckin}/>
                         </div>
                         <div>
-                            Selected park: {this.state.checkin}
+                            {
+                                this.state.checkin === '' ?
+                                ''
+                                :
+                                `Checkin in to: ${this.state.checkin}`
+                            }
                         </div>
                     </div>
                 </div>
