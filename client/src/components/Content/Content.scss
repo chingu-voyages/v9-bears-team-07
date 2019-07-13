@@ -41,6 +41,10 @@
                     border-radius: 3px;
                     border: 1px solid black;
                     flex-grow: 1;
+
+                    // &-active {
+                    //     color: red;
+                    // }
                 }
 
                 &-park:hover > h3 {
@@ -72,4 +76,8 @@
         }
     }
     
+}
+
+.active {
+    color: red;
 }
