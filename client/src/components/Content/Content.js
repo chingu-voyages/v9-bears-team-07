@@ -7,6 +7,33 @@ import './Content.scss'
 import parks from '../../assets/parks.json'
 
 export default class Content extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            active: false,
+            selectedPark: '',
+            checkin: ''
+        };
+        this.toggleClass = this.toggleClass.bind(this)
+        this.handleCheckin = this.handleCheckin.bind(this)
+    }
+
+    toggleClass(park) {
+        this.setState({selectedPark: park.name})
+    }
+
+    handleCheckin(status) {
+        if (status) {
+            this.setState({
+                checkin: ''
+            })
+        } else{
+            this.setState({
+                checkin: this.state.selectedPark,
+                active: status
+            })
+        }
+    }
 
     render() {
         return (
@@ -22,7 +49,10 @@ export default class Content extends Component {
                         <div className="Content__Body-Parks-list">
                             {parks.map((park, i) => {
                                 return (
-                                    <div key={i} className="Content__Body-Parks-list-park">
+                                    <div key={i} 
+                                        className='Content__Body-Parks-list-park'
+                                        onClick={() => this.toggleClass(park)}
+                                    >
                                         <h3>{park.name}</h3>
                                         <h3>{park.location}</h3>
                                         <h3>Users checked in: {park.online}</h3>
@@ -31,9 +61,10 @@ export default class Content extends Component {
                             })}
                         </div>
                         <div className="Content__Body-Parks-Checkin">
-                            {/* <div> */}
-                                <Check />
-                            {/* </div> */}
+                            <Check handleCheckin={this.handleCheckin}/>
+                        </div>
+                        <div>
+                            Selected park: {this.state.checkin}
                         </div>
                     </div>
                 </div>

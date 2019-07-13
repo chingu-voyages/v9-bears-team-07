@@ -45,11 +45,12 @@
 
                 &-park:hover > h3 {
                     background: rgb(152, 152, 240);
+                    margin: 0;
+                    padding: 0;
                     color: white;
                     cursor: pointer;
                 }
             }
-            
 
             &-Checkin {
                 height:100%;
