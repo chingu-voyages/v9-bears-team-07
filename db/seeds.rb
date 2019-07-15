@@ -16,6 +16,19 @@ parks = [
     name: 'Tudek Dog Park',
     address: 'Park Crest Ln, State College, PA 16803',
     location: [40.8004715, -77.891893]
+  },
+  {
+    name: 'Para Mascotas Park',
+    address: 'Av. de los Constituyentes, 3000-2802, Buenos Aires, Argentina',
+    location: [-34.591841, -58.4805706]
+  },
+  {
+    name: 'Canil',
+    address: 'Camino interno Parque Centenario, C1414 CABA, Argentina',
+    location: [-34.6055893, -58.4338099]
   }
 ]
-https://www.google.com/maps/search/Tudek+Dog+Park+lat+and+long/@40.8004715,-77.891893,17z/data=!3m1!4b1
+
+parks.each do |park|
+  Park.create(park)
+end
