@@ -35,7 +35,6 @@ function Login(props) {
       setPassword('');
 
       dispatch({ type: 'LOGGED_OK', user: res.data})
-      console.log('res',res)
       if (res.data.first_name){
         props.history.push('/homepage')
       }else {

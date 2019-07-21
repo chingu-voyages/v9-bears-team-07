@@ -5,7 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 //@ components
 import LandingPage from './LandingPage/LandingPage';
 import Homepage from './Homepage/Homepage';
-import Profile from './Profile/Profile'
+import Profile from './Profile/HooksProfile'
 
 function App() {
   return (
@@ -18,4 +18,3 @@ function App() {
 }
 
 export default App;
-
