@@ -34,9 +34,14 @@ function Login(props) {
       setEmail('');
       setPassword('');
 
-      dispatch({ type: 'LOGGED_OK'})
+      dispatch({ type: 'LOGGED_OK', user: res.data})
       console.log('res',res)
-      return props.history.push('/homepage')
+      if (res.data.first_name){
+        props.history.push('/homepage')
+      }else {
+        props.history.push('/profile')
+      }
+
     })
     .catch(err => console.error(err))
   }
