@@ -40,4 +40,8 @@ class AuthController < ApplicationController
       end
 
     end
+
+    def logout
+      reset_session
+    end
 end

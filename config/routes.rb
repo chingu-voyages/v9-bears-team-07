@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users
   post '/auth/google_login' => 'auth#google_login'
   post '/auth/email_login' => 'auth#email_login'
+  get '/auth/logout' => 'auth#logout'
   patch '/checkin/:id' => 'parks#checkin'
   patch '/checkout/:id' => 'parks#checkout'
   get '*path', to: "application#fallback_index_html", constraints: ->(request) do
