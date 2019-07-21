@@ -1,7 +1,7 @@
 //@ core
 import React, { useState } from 'react';
 import { withRouter } from 'react-router';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import axios from 'axios';
 
 //@ components
@@ -15,7 +15,7 @@ import '../Homepage/Homepage.scss'
 const Homepage = (props) => {
   // const [ null, setSelectedPark ] = useState([]);
   let [ checkedIn, setCheckIn ] = useState(false);
-  const logged = useSelector(state => state);
+  // const logged = useSelector(state => state);
 
   function parkCheckin(option) {
     // option shoud be Checkin or Checkout

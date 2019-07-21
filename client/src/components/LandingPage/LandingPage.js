@@ -1,32 +1,28 @@
 //@ componentes
-import React, { useLayoutEffect, useEffect } from 'react'
+import React, { useEffect } from 'react'
 // import Login from '../Login/Login'; 
 import Login from '../Login/LoginReducer'; 
+import axios from 'axios';
 import { useSelector } from 'react-redux';
-
-
 import { withRouter } from 'react-router';
-
-//@ styles
 import './LandingPage.scss';
-
 
 const LandingPage = function (props) {
   const user = useSelector(state => state);
 
   useEffect(() => {
-    // console.log('effect',user)
     if (user && user.logged) {
       props.history.push('/homepage')
     }
-  })
-  useLayoutEffect(()=> {
-    // let login = localStorage.getItem('logged')
 
-    // if (user.logged) {
-    //   props.history.push('/homepage')
-    // } 
-  },[]);
+    axios.get('/parks')
+    .then(response => { 
+      console.log(response)
+    })
+    .catch(error => {
+        console.log(error.response)
+    });
+  })
 
   return (
       <div className="LandingPage">
