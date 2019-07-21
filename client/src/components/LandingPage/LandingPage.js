@@ -1,7 +1,7 @@
 //@ componentes
 import React, { useEffect } from 'react'
 // import Login from '../Login/Login'; 
-import Login from '../Login/LoginReducer'; 
+import Login from '../Login/Login'; 
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { withRouter } from 'react-router';
