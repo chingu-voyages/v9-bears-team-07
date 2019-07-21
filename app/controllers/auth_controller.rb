@@ -18,7 +18,7 @@ class AuthController < ApplicationController
 
         if @user.save
           session[:user_id] = @user.id
-          render json: @user, status: :created
+          render json: @user, except: [:created_at, :updated_at, :password_digest], include: :dogs, status: :created
         else
           render json: @user.errors, status: :unprocessable_entity
         end
