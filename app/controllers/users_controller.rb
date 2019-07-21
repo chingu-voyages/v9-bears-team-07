@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   def update
     if @user.update(user_params)
-      render json: @user, include: :dogs
+      render json: @user, except: [:created_at, :updated_at, :password_digest], include: :dogs
     else
       render json: @user.errors, status: :unprocessable_entity
     end
@@ -48,6 +48,6 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation, dogs_attributes: [:name])
+      params.require(:user).permit(:first_name, :last_name, :avatar, :email, :password, :password_confirmation, dogs_attributes: [:name])
     end
 end
